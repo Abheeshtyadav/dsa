@@ -7,9 +7,9 @@ int main(){
         for(int x=3;x>=i;x--)
         cout << " ";
         for(int y=1;y<=i;y++)
-        cout << "e";
+        cout << "*";
         for(int z=0;z<=i;z++)
-        cout << "e";
+        cout << "*";
         
         cout << endl;
     }
