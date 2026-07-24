@@ -1,9 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int countt(){
-    int n;
-    cin >> n;
+int we_can_also_do(int n){
+
+    int count=(int)(log10(n)+1);
+    return count;
+    
+
+}
+
+int countt(int n){
+    
     int counter=0;
     
     while(n>0){
@@ -15,8 +22,11 @@ int countt(){
 }
 
 int main(){
+    int n;
+    cin >> n;
 
-    cout << countt();
+    cout << countt(n) << endl;
+    cout << we_can_also_do(n) << endl;
     
 }
 
