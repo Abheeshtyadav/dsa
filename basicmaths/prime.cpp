@@ -1,14 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void all_divisor(int n){
-    for(int i=1;i<=n;i++){
-        if(n%i==0)
-        cout << i << " ";
-    }
-}
 
-void optimal_approch(int n){
+set<int> optimal_approch(int n){
     set<int> se;
     for(int i=1;i*i<=n;i++){
         if(n%i==0){
@@ -19,8 +13,7 @@ void optimal_approch(int n){
         }
         
     }
-    for(auto it:se)
-    cout << it << " ";
+    return se;
 }
 
 
@@ -29,5 +22,10 @@ int main(){
     int n;
     cin >> n;
     /* all_divisor(n); */
-    optimal_approch(n);
+    set<int> se=optimal_approch(n);
+    if(se.size()==2)
+    cout << "Prime number" << endl;
+    else
+    cout << "Not a prime number" << endl;
+
 }
