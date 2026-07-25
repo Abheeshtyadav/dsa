@@ -14,6 +14,10 @@ int brute_force(int n,int m){
     return 1;
 }
 
+int Euclidean(){
+    
+}
+
 int main(){
     int n,m;
     cin >> n;
