@@ -9,6 +9,6 @@ int main(){
     }
     else{
         cout << (se.size()/2) + 1;
-    }
+        sort(i.begin(),i.end(),greate)    }
     
 }
