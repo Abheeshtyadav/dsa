@@ -26,7 +26,7 @@ vector<int> brute(vector<int> v , int k){
 }
 
 
-vector<int> optimal(vector<int> v , int x){
+vector<int> optimal0(vector<int> v , int x){
 
     vector<int> temp;
     int k;
@@ -64,27 +64,19 @@ vector<int> optimal(vector<int> v , int x){
 
 
 
-/* vector<int> towardsright(vector<int> v , int k){
-
-    vector<int> temp;
-    for(int i = (v.size() - k ) ; i<v.size() ; i++){
-        temp.emplace_back(v[i]);
-    }
-
-    for(int i = 0 ;i < v.size() ; i++){
-        v[k+i] = v[i];
-    }
-
+vector<int> optimal(vector<int> v , int k){
+    reverse(v.begin() , v.begin() + k);
+    reverse(v.begin()+ k , v.end());
+    reverse(v.begin(),v.end());
     return v;
-
-} */
+}
 
 
 
 
 int main(){
     vector<int> v = {1,2,3,4,5,6};
-    int k = 6;
+    int k = 2;
     vector<int> neww = optimal(v,k);
     
     for(auto n: neww){

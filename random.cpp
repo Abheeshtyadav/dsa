@@ -28,9 +28,17 @@ vector<int> towardsright(vector<int> v , int k){
 
 }
 
+
+vector<int> optimal(vector<int> v , int k){
+    reverse(v.begin() , v.end());
+    reverse(v.begin(), v.begin() + k);
+    reverse(v.begin() + k , v.end());
+    return v;
+}
+
 int main(){
     vector<int> v = {1,2,3,4,5,6};
-    vector<int> hehe = towardsright(v,2);
+    vector<int> hehe = optimal(v,2);
     for(auto a:hehe){
         cout << a << " ";
     }
