@@ -25,8 +25,30 @@ int brute(vector<int> v , int  k){
 }
 
 
+int optimal(vector<int> v, int k){
+    int left = 0 , right = 0, sum = 0 , maxi = 0;
+    while(right < v.size()){
+        sum+=v[right];
+        
+
+        while( left <=right &&sum > k){
+            sum-=v[left];
+            left++;
+        }
+        if(sum == k){
+            maxi = max(maxi , right - left +1);
+        }
+        if(right<v.size()){
+            right++;
+        }
+        
+    }
+    return maxi;
+}
+
+
 int main(){
-    vector<int> v = {10, 5, 2, 7, 1, 9};
-    cout << brute(v,15);
+    vector<int> v = {-1, 1, 1};
+    cout << optimal(v,1);
 
 }
