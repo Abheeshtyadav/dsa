@@ -1,36 +1,65 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> brute(vector<int> v , int k){
 
+//majority element 1 (83)
+
+int brute(vector<int> v){
+    int moj = v.size()/2;
     for(int i = 0 ; i < v.size() ; i++){
+        int count = 0;
         for(int x = 0 ; x < v.size() ; x++){
-            if(v[i] + v[x] == k){
-                return {i,x};
+            if(i != x){
+                if(v[i] == v[x]){
+                    count++;
+                }
             }
         }
+        if(count >= moj){
+            return v[i];
+        }
     }
+    return -1;
+}
 
-    return {-1,-1};
+int better(vector<int> v){
+    map<int,int> m;
 
+    for(auto hehe:v){
+        m[hehe]++;
+        if(hehe > v.size()/2){
+            return m[hehe];
+        }
+    }
+    return -1;
 }
 
 
-vector<int> better(vector<int> v , int k){
-    vector<int> re;
-    int com=0;
-    for(int i = 0 ; i < v.size() ; i++){
-        com = max(v[i] , k) - min(v[i] , k);
-        
+//Moore's voting algo
+int optimal(vector<int> v){
 
+    int ele = v[0];
+    int count = 1;
+    for(int i =1 ; i < v.size() ; i++){
+
+        if(ele == v[i]){
+            count++;
+        }
+        else if(ele != v[i]){
+            count--;
+        }
+        if(count <= 0){
+            ele = v[i];
+            count = 0;
+        }
     }
+
+    return ele;
+
 }
 
 
 int main(){
-    vector<int> v = {2,6,5,8,11};
-    vector<int> x = brute(v,14);
-    for(auto hehe:x){
-        cout << hehe << endl;
-    }
+    vector<int> v= {2,2,1,1,1,2,2};
+    cout << optimal(v);
 }
