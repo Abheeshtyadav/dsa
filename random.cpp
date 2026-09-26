@@ -2,23 +2,38 @@
 using namespace std;
 
 
-
-set<int> removedep(vector<int> v){
-    set<int> s;
-    for(auto hehe:v){
-        s.emplace(hehe);
+int bins(vector<int> v , int k){
+    int low = 0 , high = v.size() -1;
+    while(low <= high){
+        int mid = low + (high - low)/2;
+        if(v[mid] == k){
+            return mid;
+        }
+        else if(v[mid] > k){
+            high = mid -1;
+        }
+        else if(v[mid] < k){
+            low = mid + 1;
+        }
     }
-    for(int i = 0 ; i < s.size() ; i++){
-        v[i] = s[i];
-    }
-    return s;
-
+    return -1;
 }
 
-int main(){
-    vector<int> v = {1,1,2,2,3,4,5,6};
-    set<int> s = removedep(v);
-    for(auto hehe: s){
-        cout << hehe << " ";
+void exp(vector<int> v , int k){
+    int low=0 , high = v.size() - 1;
+    while(low <= high){
+        int mid = (low + high) / 2;
+        cout << mid;
     }
+}
+
+
+int main(){
+
+    vector<int> v = {1,2,3,4,5,6};
+    //exp(v , 2);
+    float f= 5/2;
+    cout << f;
+
+
 }

@@ -28,25 +28,29 @@ vector<int> brute(vector<int> v){
 }
 
 vector<int> optimal(vector<int> v){
-    int neg = v[0];
-    
+    int pos=0,neg=1;
+    vector<int> ans(v.size(),0);
     for(int i = 0 ; i < v.size() ; i++){
-        if(v[i]<0){
-        neg = v[i];
-        break;
+        if(v[i] < 0){
+            ans[neg] = v[i];
+            neg = neg+2;
+        }
+        else{
+            ans[pos] = v[i];
+            pos=pos+2;
         }
 
     }
+    return ans;
 
-    for(int i = 0 ; i < v.size() ; i++){
-        
-    }
+    
+
 }
 
 
 int main(){
     vector<int> v={3,1,-2,-5,2,-4};
-    vector<int> res = brute(v);
+    vector<int> res = optimal(v);
     for(auto hehe : res){
         cout << hehe << " ";
     }
