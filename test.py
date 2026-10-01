@@ -1,2 +1,1 @@
-s = "hehe"
-print(reversed(s))
+#i

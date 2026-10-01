@@ -1,38 +1,25 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 
-
-void selection_sort(int arr[],int n){
-    int minn=0;
-    
-    for(int i=0;i<n-1;i++){
-        minn=i;
-        for(int x=i;x<n;x++){
-            if(arr[x]<arr[minn]){
-                minn=x;
-
-            }
-
+vector<int> selection_sort(vector<int> v){
+    int mini = 0;
+    for(int i = 0 ; i < v.size()-1 ; i++){
+        mini = v[i];
+        for(int x = i ; x < v.size() ; x++){
+            if(v[x] < mini)
+            mini = v[x];
         }
-        int temp=arr[minn];
-                arr[minn]=arr[i];
-                arr[i] = temp;
+        swap(v[i],mini);
 
     }
-    for(int z=0;z<n;z++){
-        cout << arr[z] << " ";
-    }
-   
+    return v;
 }
 
 int main(){
-    int n;
-    cin >> n;
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin >> arr[i];
+    vector<int> v = {2,5,1,5,6,7,8,4,7};
+    vector<int> ans = selection_sort(v);
+    for(auto hehe : ans){
+        cout << hehe << " ";
     }
-    selection_sort(arr,n);
-
 }
